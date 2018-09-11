@@ -49,18 +49,53 @@ func main() {
 	alex.contact.zipCode = 96000
 
 	alex.printPerson()
-	alex.updateName("Alexei")
+
+	alexPointer := &alex // variable that stores the memory address of alex
+	alexPointer.updateName("Alexei")
 
 	fmt.Println(alex)
 
+	matt := person{
+		firstName: "Matt",
+		lastName:  "Smeets",
+		contact: contactInfo{
+			email:   "matt@gmail.com",
+			zipCode: 98000,
+		},
+	}
+	mattPointer := &matt
+	mattValue := *mattPointer
+	newMattPointer := &mattValue
+
+	fmt.Println(mattPointer)
+
+	fmt.Println(mattValue)
+
+	fmt.Println(newMattPointer)
+
+	Name := &matt.firstName
+
+	contato := &matt.contact
+
+	fmt.Println(Name)
+	fmt.Println(contato)
+
+	a := 1
+
+	fmt.Println("pointer: ", &a)
+	fmt.Println("pointer: ", *(&a))
+	fmt.Println("pointer: ", &(*(&a)))
+
 }
 
-func (p person) updateName(newFirstName string) {
+func (pointerToPerson *person) updateName(newFirstName string) {
 
-	p.firstName = newFirstName
+	(*pointerToPerson).firstName = newFirstName // *' poderia ser omitido aqui
+
 }
 
 func (p person) printPerson() {
+
 	fmt.Printf("%+v \n", p)
 
 }

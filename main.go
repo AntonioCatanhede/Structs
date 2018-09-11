@@ -39,8 +39,8 @@ func main() {
 		},
 	}
 
-	fmt.Printf("%+v", jim)
-	fmt.Printf("%+v", chris)
+	fmt.Printf("%+v \n", jim)
+	fmt.Printf("%+v \n", chris)
 
 	var alex person
 	alex.firstName = "Alex"
@@ -48,8 +48,19 @@ func main() {
 	alex.contact.email = "alex@gmail.com"
 	alex.contact.zipCode = 96000
 
-	fmt.Printf("%+v", alex)
+	alex.printPerson()
+	alex.updateName("Alexei")
 
 	fmt.Println(alex)
+
+}
+
+func (p person) updateName(newFirstName string) {
+
+	p.firstName = newFirstName
+}
+
+func (p person) printPerson() {
+	fmt.Printf("%+v \n", p)
 
 }

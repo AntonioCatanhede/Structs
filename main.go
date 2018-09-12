@@ -50,8 +50,9 @@ func main() {
 
 	alex.printPerson()
 
-	alexPointer := &alex // variable that stores the memory address of alex
-	alexPointer.updateName("Alexei")
+	// alexPointer := &alex // variable that stores the memory address of alex
+	// alexPointer.updateName("Alexei")
+	alex.updateName("Alexei") // SHORTCUT: GO interpreta que se trata de um ponteiro para 'alex'
 
 	fmt.Println(alex)
 
@@ -80,11 +81,11 @@ func main() {
 	fmt.Println(Name)
 	fmt.Println(contato)
 
-	a := 1
+	// a := 1
 
-	fmt.Println("pointer: ", &a)
-	fmt.Println("pointer: ", *(&a))
-	fmt.Println("pointer: ", &(*(&a)))
+	// fmt.Println("pointer: ", &a)
+	// fmt.Println("pointer: ", *(&a))
+	// fmt.Println("pointer: ", &(*(&a)))
 
 }
 
